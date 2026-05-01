@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Agent — Groq Powered</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ── Sidebar ─────────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Groq Agent</span>
+      </div>
+    </div>
+
+    <div class="config-section">
+
+      <label class="field-label" style="margin-top:18px;">System Prompt</label>
+      <textarea id="systemPrompt" rows="5" placeholder="You are a helpful AI assistant...">You are a helpful AI assistant. Be concise, clear, and friendly.</textarea>
+
+      <button id="clearBtn" class="btn-secondary">🗑 Clear Chat</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Disconnected</span>
+    </div>
+  </aside>
+
+  <!-- ── Main Chat ───────────────────────────────────────────── -->
+  <main class="chat-area">
+    <header class="chat-header">
+      <h1>AI Agent</h1>
+      <span class="model-badge">GROQ</span>
+    </header>
+
+    <div class="messages" id="messages">
+      <div class="welcome">
+        <div class="welcome-icon">⬡</div>
+        <h2>Hello! I'm your Groq Agent</h2>
+       <p>Type a message below to start chatting.</p>
+      </div>
+    </div>
+
+    <div class="input-bar">
+      <textarea id="userInput" placeholder="Type your message…" rows="1"></textarea>
+      <button id="sendBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
