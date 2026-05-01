@@ -2,11 +2,8 @@
 // NEW — works both locally and on Render
 const API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
   ? "http://localhost:5000"
-  : "https://your-backend-name.onrender.com";  // ← replace with your Render backend URL
+  : "https://groq-ai-g7rv.onrender.com";  // ← replace with your Render backend URL
 const SESSION_ID = "session_" + Math.random().toString(36).slice(2, 9);
-// Example fetch call
-const response = await fetch(`${import.meta.env.VITE_API_URL}/api/data`);
-const data = await response.json();
 // ── DOM refs ─────────────────────────────────────────────────
 const systemPromptEl = document.getElementById("systemPrompt");
 const clearBtn       = document.getElementById("clearBtn");
