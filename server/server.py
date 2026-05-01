@@ -5,17 +5,18 @@ from groq import Groq
 import os
 import uuid
 import logging
-#-------FastAPI---------------------------#
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI 
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://groq-ai-g7rv.onrender.com"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
+# ── Load .env ─────────────────────────────────────────────────
+load_dotenv()
+
+# ── App Setup ─────────────────────────────────────────────────
+app = Flask(__name__)
+
+# ── CORS ──────────────────────────────────────────────────────
+CORS(app, origins=["https://groq-ai-g7rv.onrender.com", "http://localhost:5500", "http://127.0.0.1:5500"],
+     supports_credentials=False,
+     allow_headers=["Content-Type"],
+     methods=["GET", "POST", "DELETE", "OPTIONS"])
 # ── Load .env ─────────────────────────────────────────────────
 load_dotenv()
 
