@@ -7,7 +7,7 @@ import uuid
 import logging
 #-------FastAPI---------------------------#
 from fastapi.middleware.cors import CORSMiddleware
-
+app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://groq-ai-g7rv.onrender.com"],
