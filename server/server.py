@@ -5,6 +5,15 @@ from groq import Groq
 import os
 import uuid
 import logging
+#-------FastAPI---------------------------#
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://groq-ai-g7rv.onrender.com"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ── Load .env ─────────────────────────────────────────────────
 load_dotenv()
