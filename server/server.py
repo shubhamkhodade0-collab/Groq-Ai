@@ -12,17 +12,6 @@ load_dotenv()
 # ── App Setup ─────────────────────────────────────────────────
 app = Flask(__name__)
 
-# ── CORS ──────────────────────────────────────────────────────
-CORS(app, origins=["https://groq-ai-g7rv.onrender.com", "http://localhost:5500", "http://127.0.0.1:5500"],
-     supports_credentials=False,
-     allow_headers=["Content-Type"],
-     methods=["GET", "POST", "DELETE", "OPTIONS"])
-# ── Load .env ─────────────────────────────────────────────────
-load_dotenv()
-
-# ── App Setup ─────────────────────────────────────────────────
-app = Flask(__name__)
-
 # ── Logging ───────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
@@ -240,6 +229,4 @@ def health():
 # ══════════════════════════════════════════════════════════════
 if __name__ == "__main__":
     logger.info(f"Starting Groq Agent Server on port {FLASK_PORT}")
-    logger.info(f"Model: {DEFAULT_MODEL} | Max Tokens: {MAX_TOKENS}")
-    logger.info(f"API Key from .env: {'✓ Loaded' if GROQ_API_KEY else '✗ Not set (must pass in request)'}")
-    app.run(debug=FLASK_DEBUG, port=FLASK_PORT)
+    app.run(debug=FLASK_DEBUG, host="0.0.0.0", port=FLASK_PORT)  # ← host="0.0.0.0" is critical on Render
